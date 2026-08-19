@@ -141,16 +141,17 @@ export default function BetterYouApp() {
   const HomePage = () => (
     <div>
       {/* Hero Section */}
-      <section className="relative h-[500px] md:h-[600px] overflow-hidden bg-gradient-to-br from-stone-100 to-orange-50">
-        <div 
-          className="absolute inset-0 opacity-40"
+      <section className="relative h-[560px] md:h-[680px] overflow-hidden bg-stone-50">
+        <div
+          className="absolute inset-0"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1573497620142-072bd92d64c4?w=1200&h=600&fit=crop")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1580230315595-c91d1e06ceb5?w=1600&h=1000&fit=crop")',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
         />
-        
+        <div className="absolute inset-0 bg-gradient-to-r from-stone-50 via-stone-50/85 md:via-stone-50/70 to-transparent" />
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
           <div className="max-w-2xl">
             <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -312,18 +313,19 @@ export default function BetterYouApp() {
   const AboutPage = () => (
     <div>
       {/* Hero */}
-      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-orange-100 to-amber-100">
+      <section className="relative h-[420px] md:h-[520px] overflow-hidden">
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0"
           style={{
             backgroundImage: 'url("/girl-smiling.webp")',
             backgroundSize: 'cover',
             backgroundPosition: 'top'
           }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">About Helena</h1>
-          <p className="text-xl text-gray-700 max-w-2xl">Learn more about my background, experience, and approach to therapy</p>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-12">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">About Helena</h1>
+          <p className="text-xl text-white/90 max-w-2xl">Learn more about my background, experience, and approach to therapy</p>
         </div>
       </section>
 
@@ -424,18 +426,19 @@ export default function BetterYouApp() {
   const GroupSessionsPage = () => (
     <div>
       {/* Hero */}
-      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-orange-100 to-amber-100">
+      <section className="relative h-[420px] md:h-[560px] overflow-hidden">
         <div
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1200&h=600&fit=crop")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1590650046871-92c887180603?w=1600&h=1200&fit=crop")',
             backgroundSize: 'cover',
             backgroundPosition: 'center'
           }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Group Sessions</h1>
-          <p className="text-xl text-gray-700 max-w-2xl">Contact us for more information</p>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-12">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Group Sessions</h1>
+          <p className="text-xl text-white/90 max-w-2xl">Contact us for more information</p>
         </div>
       </section>
 
