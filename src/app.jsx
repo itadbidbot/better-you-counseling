@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Check, Phone, Mail, MapPin } from 'lucide-react';
 
+const VALID_PAGES = ['home', 'services', 'about', 'group-sessions', 'books', 'pricing', 'contact'];
+
+const pageFromPath = (pathname) => {
+  const page = pathname.replace(/^\/|\/$/g, '');
+  return VALID_PAGES.includes(page) ? page : 'home';
+};
+
+const pathFromPage = (page) => (page === 'home' ? '/' : `/${page}`);
+
 export default function BetterYouApp() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState(() => pageFromPath(window.location.pathname));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
@@ -31,7 +40,17 @@ export default function BetterYouApp() {
     setCurrentPage(page);
     setIsMenuOpen(false);
     window.scrollTo(0, 0);
+    window.history.pushState({}, '', pathFromPage(page));
   };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPage(pageFromPath(window.location.pathname));
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Navigation Component
   const Navigation = () => (
@@ -47,18 +66,17 @@ export default function BetterYouApp() {
           <div className="flex justify-between items-center h-16">
             <button
               onClick={() => handleNavClick('home')}
-              className="flex items-center gap-3 cursor-pointer hover:opacity-80"
+              className="flex items-center cursor-pointer hover:opacity-80"
             >
-              <img src="/logo.webp" alt="Better You Counseling & Coaching" className="h-10 w-auto" />
-              <span className="text-xl font-bold text-gray-900">
-                <span className="text-amber-700">BETTER</span> YOU
-              </span>
+              <img src="/logo.png" alt="Better You Counseling Services" className="h-14 w-auto" />
             </button>
             
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
               <button onClick={() => handleNavClick('services')} className="text-gray-600 hover:text-amber-700 transition font-medium">Services</button>
               <button onClick={() => handleNavClick('about')} className="text-gray-600 hover:text-amber-700 transition font-medium">About</button>
+              <button onClick={() => handleNavClick('group-sessions')} className="text-gray-600 hover:text-amber-700 transition font-medium">Group Sessions</button>
+              <button onClick={() => handleNavClick('books')} className="text-gray-600 hover:text-amber-700 transition font-medium">Books</button>
               <button onClick={() => handleNavClick('pricing')} className="text-gray-600 hover:text-amber-700 transition font-medium">Pricing</button>
               <button onClick={() => handleNavClick('contact')} className="bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600 text-white px-6 py-2.5 rounded-full font-medium transition shadow-md hover:shadow-lg">
                 Free Consultation
@@ -79,6 +97,8 @@ export default function BetterYouApp() {
             <div className="md:hidden pb-4 space-y-3 border-t border-amber-100">
               <button onClick={() => handleNavClick('services')} className="block w-full text-left text-gray-600 hover:text-amber-700 py-2 font-medium">Services</button>
               <button onClick={() => handleNavClick('about')} className="block w-full text-left text-gray-600 hover:text-amber-700 py-2 font-medium">About</button>
+              <button onClick={() => handleNavClick('group-sessions')} className="block w-full text-left text-gray-600 hover:text-amber-700 py-2 font-medium">Group Sessions</button>
+              <button onClick={() => handleNavClick('books')} className="block w-full text-left text-gray-600 hover:text-amber-700 py-2 font-medium">Books</button>
               <button onClick={() => handleNavClick('pricing')} className="block w-full text-left text-gray-600 hover:text-amber-700 py-2 font-medium">Pricing</button>
               <button onClick={() => handleNavClick('contact')} className="w-full bg-gradient-to-r from-amber-600 to-orange-500 text-white px-6 py-2.5 rounded-full font-medium transition">
                 Free Consultation
@@ -298,7 +318,7 @@ export default function BetterYouApp() {
           style={{
             backgroundImage: 'url("/girl-smiling.webp")',
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'top'
           }}
         />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -394,6 +414,131 @@ export default function BetterYouApp() {
             <p className="text-lg text-gray-700 leading-relaxed">
               Therapy with me isn't about endlessly rehashing the past; it's about understanding it and recoding it so it stops running the show. We can create a better future.
             </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+
+  // GROUP SESSIONS PAGE
+  const GroupSessionsPage = () => (
+    <div>
+      {/* Hero */}
+      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-orange-100 to-amber-100">
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: 'url("https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1200&h=600&fit=crop")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Group Sessions</h1>
+          <p className="text-xl text-gray-700 max-w-2xl">Contact us for more information</p>
+        </div>
+      </section>
+
+      {/* Intro */}
+      <section className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl space-y-6 text-gray-700 leading-relaxed mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Feeling stuck in stress, overthinking, or relationship patterns?
+            </h2>
+            <p className="text-lg">
+              Group counseling offers a supportive space to learn practical skills, gain new insight, and connect with others who understand.
+            </p>
+            <p className="text-lg">
+              Together, we focus on real strategies that help you move forward with clarity and confidence.
+            </p>
+            <p className="text-lg font-semibold text-gray-900">Below are the available groups:</p>
+          </div>
+
+          {/* Group Cards */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'Stop Overthinking and Rumination',
+                description: 'Break free from the exhausting cycle of overthinking and mental replay. In this skills-based group, you will learn practical strategies to calm your mind, challenge unhelpful thought patterns, and regain clarity and confidence in your decisions.'
+              },
+              {
+                title: 'Boundaries and Relationships',
+                description: 'Learn how to protect your peace while building stronger, healthier connections. This group teaches clear, practical tools for setting boundaries, communicating your needs, and creating relationships that feel respectful, balanced, and fulfilling.'
+              },
+              {
+                title: 'Rediscovering Yourself After Divorce',
+                description: 'Divorce can be painful, but it can also be the beginning of a powerful new chapter. This supportive group helps you process the past, rebuild confidence, and reconnect with the person you are becoming.'
+              },
+              {
+                title: 'Rewriting Your Inner Dialogue (Self-Esteem Group)',
+                description: 'Your inner voice shapes how you see yourself and your life. In this empowering group, you will learn how to challenge negative self-talk, build genuine self-worth, and develop a kinder, more confident relationship with yourself.'
+              }
+            ].map((group, idx) => (
+              <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition border border-orange-200">
+                <h3 className="text-2xl font-bold text-amber-700 mb-4">{group.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{group.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Ready to Join a Group?</h2>
+          <button onClick={() => handleNavClick('contact')} className="bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600 text-white px-8 py-4 rounded-full font-semibold transition inline-flex items-center gap-2 group">
+            Contact Us for More Information
+            <ArrowRight size={20} className="group-hover:translate-x-1 transition" />
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+
+  // BOOKS PAGE
+  const BooksPage = () => (
+    <div>
+      {/* Hero */}
+      <section className="bg-gradient-to-r from-orange-100 to-amber-100 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">Books & Resources</h1>
+          <p className="text-xl text-gray-700 max-w-2xl">Practical guides to help you break free from patterns that keep you stuck</p>
+        </div>
+      </section>
+
+      {/* Book Feature */}
+      <section className="py-20 bg-gradient-to-br from-orange-50 via-amber-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="flex justify-center">
+              <img
+                src="/book-cover.jpg"
+                alt="Break the Loop by Helena Manssuer, M.S., LPC"
+                className="w-full max-w-sm rounded-2xl shadow-lg"
+              />
+            </div>
+
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">Break the Loop</h2>
+              <p className="text-xl text-gray-700 mb-6 leading-relaxed">
+                Break Free from Self-Sabotage, Fear, and the Stories That Keep You Stuck
+              </p>
+              <p className="text-gray-700 mb-8 leading-relaxed">
+                A soulful, practical guide to help you heal emotional patterns that keep you stuck, choose freedom over fear, and forgive, accept, and move forward with strength. Each chapter offers gentle reflections, practical tools, and "Soul Notes" to guide you deeper into healing.
+              </p>
+              <p className="text-4xl font-bold text-amber-700 mb-8">$6.99</p>
+              <a
+                href="https://payhip.com/b/RGwXh"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-to-r from-amber-600 to-orange-500 hover:from-amber-700 hover:to-orange-600 text-white px-8 py-4 rounded-full font-semibold transition shadow-lg hover:shadow-xl inline-flex items-center gap-2 group"
+              >
+                Buy Now
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -686,6 +831,12 @@ export default function BetterYouApp() {
       break;
     case 'about':
       pageContent = <AboutPage />;
+      break;
+    case 'group-sessions':
+      pageContent = <GroupSessionsPage />;
+      break;
+    case 'books':
+      pageContent = <BooksPage />;
       break;
     case 'pricing':
       pageContent = <PricingPage />;
