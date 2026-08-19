@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowRight, Check, Phone, Mail, MapPin, Heart, Lightbulb, TrendingUp } from 'lucide-react';
+import { Menu, X, ArrowRight, Check, Phone, Mail, MapPin } from 'lucide-react';
 
 export default function BetterYouApp() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -38,7 +38,7 @@ export default function BetterYouApp() {
     <>
       {/* Announcement Bar */}
       <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-3 text-center text-sm">
-        <p>✨ New Resource Available: <span className="font-semibold">Break the Loop</span> <a href="#" className="underline hover:opacity-90">Buy Now</a></p>
+        <p>✨ New Resource Available: <span className="font-semibold">Break the Loop</span> <span className="underline">Buy Now</span></p>
       </div>
 
       {/* Nav Bar */}
