@@ -321,7 +321,7 @@ export default function BetterYouApp() {
             <div className="flex justify-center">
               <div className="w-80 h-80 rounded-3xl overflow-hidden shadow-lg">
                 <img 
-                  src="/IMG_693.webp?w=400&h=400&fit=crop"
+                  src="/helena.webp?w=400&h=400&fit=crop"
                   alt="Helena Manssuer"
                   className="w-full h-full object-cover"
                 />
