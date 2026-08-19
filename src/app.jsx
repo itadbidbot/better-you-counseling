@@ -326,9 +326,9 @@ export default function BetterYouApp() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url("/helena.webp")',
+            backgroundImage: 'url("https://images.unsplash.com/photo-1560204717-850e441065fd?w=1600&h=1200&fit=crop")',
             backgroundSize: 'cover',
-            backgroundPosition: 'center 18%'
+            backgroundPosition: 'center'
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
