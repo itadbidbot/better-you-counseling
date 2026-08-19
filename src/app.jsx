@@ -57,7 +57,7 @@ export default function BetterYouApp() {
     <>
       {/* Announcement Bar */}
       <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-3 text-center text-sm">
-        <p>✨ New Resource Available: <span className="font-semibold">Break the Loop</span> <span className="underline">Buy Now</span></p>
+        <p>✨ New Resource Available: <span className="font-semibold">Break the Loop</span> <button onClick={() => handleNavClick('books')} className="underline hover:opacity-80">Buy Now</button></p>
       </div>
 
       {/* Nav Bar */}
@@ -130,7 +130,7 @@ export default function BetterYouApp() {
         </div>
         <div className="border-t border-orange-800 pt-8">
           <p className="text-center text-amber-100 text-sm">
-            © 2024 BETTER YOU Counseling & Coaching Services. All rights reserved.
+            © 2026 BETTER YOU Counseling & Coaching Services. All rights reserved.
           </p>
         </div>
       </div>
