@@ -45,11 +45,14 @@ export default function BetterYouApp() {
       <nav className="bg-gradient-to-r from-stone-50 to-amber-50 border-b border-amber-100 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <button 
+            <button
               onClick={() => handleNavClick('home')}
-              className="text-xl font-bold text-gray-900 cursor-pointer hover:opacity-80"
+              className="flex items-center gap-3 cursor-pointer hover:opacity-80"
             >
-              <span className="text-amber-700">BETTER</span> YOU
+              <img src="/logo.webp" alt="Better You Counseling & Coaching" className="h-10 w-auto" />
+              <span className="text-xl font-bold text-gray-900">
+                <span className="text-amber-700">BETTER</span> YOU
+              </span>
             </button>
             
             {/* Desktop Menu */}
@@ -289,8 +292,16 @@ export default function BetterYouApp() {
   const AboutPage = () => (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-r from-orange-100 to-amber-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-16 overflow-hidden bg-gradient-to-r from-orange-100 to-amber-100">
+        <div
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: 'url("/girl-smiling.webp")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">About Helena</h1>
           <p className="text-xl text-gray-700 max-w-2xl">Learn more about my background, experience, and approach to therapy</p>
         </div>
@@ -319,11 +330,11 @@ export default function BetterYouApp() {
             </div>
 
             <div className="flex justify-center">
-              <div className="w-80 h-80 rounded-3xl overflow-hidden shadow-lg">
-                <img 
-                  src="/helena.webp?w=400&h=400&fit=crop"
+              <div className="w-80 h-96 rounded-3xl overflow-hidden shadow-lg">
+                <img
+                  src="/helena.webp"
                   alt="Helena Manssuer"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
             </div>
