@@ -209,10 +209,19 @@ export default function BetterYouApp() {
   const ServicesPage = () => (
     <div>
       {/* Hero */}
-      <section className="bg-gradient-to-r from-orange-100 to-amber-100 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">My Services</h1>
-          <p className="text-xl text-gray-700 max-w-2xl">Comprehensive counseling and coaching services designed to help you navigate life's challenges and unlock your potential.</p>
+      <section className="relative h-[420px] md:h-[560px] overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'url("https://images.unsplash.com/photo-1573495804664-b1c0849525af?w=1600&h=1200&fit=crop")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-end pb-12">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">My Services</h1>
+          <p className="text-xl text-white/90 max-w-2xl">Comprehensive counseling and coaching services designed to help you navigate life's challenges and unlock your potential.</p>
         </div>
       </section>
 
