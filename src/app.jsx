@@ -154,7 +154,7 @@ export default function BetterYouApp() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
           <div className="max-w-2xl">
-            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
               Your Journey to a <span className="text-amber-700">Better You</span>
             </h2>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
